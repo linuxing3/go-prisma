@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/linuxing3/go-prisma/db"
+	"github.com/linuxing3/go-prisma/prisma/db"
 )
 
 func main() {

@@ -8,11 +8,18 @@ generator db {
     provider = "go run github.com/prisma/prisma-client-go"
 }
 
+model User {
+  id    Int      @id @default(autoincrement())
+  name  String
+  password  String
+  passwordShow  String
+  posts Post[]
+}
+
 model Post {
-    id        String   @default(cuid()) @id
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    title     String
-    published Boolean
-    desc      String?
+  id        Int     @id @default(autoincrement())
+  title     String
+  published Boolean @default(true)
+  authorId  Int
+  author    User    @relation(fields: [authorId], references: [id])
 }
